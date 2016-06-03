@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="rightItemColor">@android:color/transparent</color>
+
+    <color name="carBGColor">#e0ed7244</color>
+
+    <color name="carBGColorVehicle">#e0ed7244</color>
+    <color name="carBGColorSound">#d994082d</color>
+    <color name="carBGColorRadio">#e015963e</color>
+    <color name="carBGColorMedia">#e005178e</color>
+    <color name="carBGColorPhone">#e0787802</color>
+    <color name="carBGColorSettings">#e0a30da0</color>
+
+    <!--<color name="rightItemColor">#FF4081</color>-->
+</resources>

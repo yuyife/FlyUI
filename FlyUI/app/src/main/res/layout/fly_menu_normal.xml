@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fly_right_normal"
+    android:layout_width="310dp"
+    android:layout_height="265dp"
+    android:layout_gravity="right|end"
+    android:layout_marginRight="200dp">
+
+    <LinearLayout
+        android:id="@+id/first_layout_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/rightItemColor"
+        android:orientation="horizontal"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:id="@+id/vehicle_layout_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/first_layout_normal"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="-25dp"
+        android:background="@color/rightItemColor"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/sound_layout_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/vehicle_layout_normal"
+        android:layout_marginLeft="170dp"
+
+        android:layout_marginTop="-17.5dp"
+        android:background="@color/rightItemColor"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/radio_layout_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+
+        android:layout_below="@+id/sound_layout_normal"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/rightItemColor"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/media_layout_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/radio_layout_normal"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/rightItemColor"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/telephone_layout_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/media_layout_normal"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="-17.5dp"
+        android:background="@color/rightItemColor"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+
+        android:id="@+id/settings_layout_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="-25dp"
+        android:background="@color/rightItemColor"
+        android:orientation="horizontal" />
+</RelativeLayout>
