@@ -8,11 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.yuyife.flyui.anim.MyAnimation;
+import com.yuyife.flyui.anim.SlideLeft;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -64,10 +65,10 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout normalLayout;
 
     @OnClick({R.id.fly_left_image_car})
-    public void onViewClick(View v){
-        switch (v.getId()){
+    public void onViewClick(View v) {
+        switch (v.getId()) {
             case R.id.fly_left_image_car:
-                Snackbar.make(v,"I am yuyife [FlyAudio coder]",Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(v, "I am yuyife [FlyAudio coder]", Snackbar.LENGTH_SHORT).show();
                 break;
         }
     }
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.settings_layout_normal, R.id.settings_layout_change})
     public void onMenuItemClick(View view) {
         if (isFirst) {
-            firstValue();
+            resetValue();
         } else {
             switch (view.getId()) {
                 case R.id.vehicle_layout_normal:
@@ -126,14 +127,17 @@ public class MainActivity extends AppCompatActivity {
     @OnClick({R.id.btn_pre, R.id.btn_next})
     public void onBtnClick(View view) {
         if (isFirst) {
-            firstValue();
+            resetValue();
         } else {
             switch (view.getId()) {
                 case R.id.btn_pre:
-
+                    isPre = true;
+                    isNext = false;
                     if (index == 0) {
                         //当 光标已经停在 vehicle 再点击pre 不再移动光标
                         MyAnimation.startAnimationsIn(menuItemLayout[index], 200);
+
+                        //new SlideLeft().start(menuItemLayout[index]);
                         return;
                     } else {
                         //  5 4 3 2 1
@@ -149,9 +153,12 @@ public class MainActivity extends AppCompatActivity {
 
                     break;
                 case R.id.btn_next:
+                    isNext = true;
+                    isPre = false;
                     if (index == 5) {
                         //当 光标已经停在 settings 再点击next 不再移动光标
                         MyAnimation.startAnimationsIn(menuItemLayout[index], 200);
+                        //new SlideLeft().start(menuItemLayout[index]);
                         return;
                     } else {
                         // 0 1 2 3 4
@@ -224,8 +231,28 @@ public class MainActivity extends AppCompatActivity {
         textLayouts[index].setBackgroundDrawable(menuShapeDrawables[index]);
         imageViews[index].setImageDrawable(selectImages[index]);
 
-        MyAnimation.startAnimationsIn(menuItemLayout[index], 200);
 
+        if(isNext){
+            if (index == 0){
+
+            }else {
+                MyAnimation.startAnimationsOut(menuItemLayout[index - 1], 200, 200);
+                //MyAnimation.startAnimationsIn(menuItemLayout[index], 200);
+
+                MyAnimation.moveAnim(this,menuItemLayout[index]);
+            }
+        }
+        if(isPre){
+            if (index == 5){
+
+            }else {
+                MyAnimation.startAnimationsOut(menuItemLayout[index + 1], 200, 200);
+                MyAnimation.startAnimationsIn(menuItemLayout[index], 200);
+            }
+        }
+
+
+        //new SlideLeft().start(menuItemLayout[index]);
 
         if (isUpdate) {
             if (isChangeLayout) {
@@ -251,6 +278,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean isFirst = true;
     private boolean isChangeLayout = false;//默认不改变布局
     private boolean isUpdate = false;//
+    private boolean isPre = false;
+    private boolean isNext = false;
 
     private int index = 0;
     private int count = 6;
@@ -284,12 +313,13 @@ public class MainActivity extends AppCompatActivity {
         normalViewsUpdate();
     }
 
-    private void firstValue(){
+    private void resetValue() {
         index = 0;
         isChangeLayout = false;
         isUpdate = false;
         isFirst = false;
     }
+
     private void initData() {
         menuText[0] = "Vehicle";
         menuText[1] = "Sound";
