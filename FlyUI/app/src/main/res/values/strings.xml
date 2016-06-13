@@ -15,4 +15,7 @@
     </string>
 
     <string name="cs">text</string>
+
+    <string name="pre_tag">pre</string>
+    <string name="next_tag">next</string>
 </resources>
